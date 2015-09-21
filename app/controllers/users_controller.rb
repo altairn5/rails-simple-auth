@@ -15,12 +15,11 @@ class UsersController < ApplicationController
     if @user.save
       #login user
       session[:user_id] = @user.id
-      #redirect to user#show
-      redirect_to @user
+      #redirect to user#show w/ success message
+      redirect_to @user, flash: { success: "Successfully signed up!" }
     else
-      #there was an error, go back to signup page
-      #TODO: pack errors into a flash message & pass to :new view 
-      render :new
+      #there was an error, go back to signup page & display message
+      redirect_to sign_up_path, flash: { error: @user.errors.full_messages.to_sentence }
     end
   end
 
