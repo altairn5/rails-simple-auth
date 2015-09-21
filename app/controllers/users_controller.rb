@@ -4,6 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(user_params)
+    if @user.save
+      #login user
+      session[:user_id] = @user.id
+      #redirect to user#show
+      redirect_to @user
+    else
+      #there was an error, go back to signup page
+      #TODO: pack errors into a flash message & pass to :new view 
+      render :new
+    end
   end
 
   def show
