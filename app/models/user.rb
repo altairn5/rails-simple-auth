@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   # a user must have a password & password confirmation field
   # the fields are match against each other but never persisted to the database
   validates_confirmation_of :password
+  # TODO: add validator for unique emails
 
   # to authenticate the user using bcrypt's built in 
   def authenticate(unencrypted_password)

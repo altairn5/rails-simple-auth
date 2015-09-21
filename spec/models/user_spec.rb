@@ -1,7 +1,6 @@
 require "rails_helper"
 
 describe User, type: :model do
-
   it "can create a new user" do
     expect(User.new).to be_a User
   end
