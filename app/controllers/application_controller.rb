@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     @current_user ||= session[:user_id] && User.find_by_id(session[:user_id])
   end
 
+  helper_method :current_user #make it available in views
 end
