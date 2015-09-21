@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "/sign_up", to: "users#new", as: "sign_up"
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :index]
 
   # handles all unknown requests and sends them home
   get "*path" => "welcome#index"

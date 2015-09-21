@@ -39,9 +39,11 @@ class User < ActiveRecord::Base
   #   @password
   # end
 
-  # def self.confirm(email_param, password_param)
-  #   user = User.find_by_email(email_param)
-  #   user.authenticate(password_param)
-  # end
+  # has_secure_password does not give us `::confirm`
+
+  def self.confirm(email_param, password_param)
+    user = User.find_by_email(email_param)
+    user.authenticate(password_param)
+  end
 
 end
