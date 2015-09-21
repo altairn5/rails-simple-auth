@@ -1,9 +1,9 @@
 <h1>Login</h1>
 
 <%= form_tag(sessions_path, method: "post") do %>
-	<%= label_tag :email %>
-	<%= text_field_tag(:email, nil) %>
-	<%= label_tag :password %>
-	<%= password_field_tag(:password, nil) %>
+	<span>Email: </span><br>
+	<%= text_field_tag(:email, nil) %><br>
+	<span>Password: </span><br>
+	<%= password_field_tag(:password, nil) %><br>
 	<%= submit_tag("Login") %>
 <% end %>
